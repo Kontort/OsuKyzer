@@ -17,11 +17,15 @@ using osu.Framework.Timing;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.ES30;
+using osu.Game.Overlays.Settings.Sections.Kyzer;
+using osu.Game.Kyzer.Main;
 
 namespace osu.Game.Rulesets.Osu.UI.Cursor
 {
     internal class CursorTrail : Drawable, IRequireHighFrequencyMousePosition
     {
+        private bool eventSet;
+
         private int currentIndex;
 
         private Shader shader;
@@ -64,6 +68,14 @@ namespace osu.Game.Rulesets.Osu.UI.Cursor
 
         public CursorTrail()
         {
+            if (!eventSet)
+            {
+                // Is done to prevent leftover trail from re-appearing
+                KyzerGraphics.TrailFade.ValueChanged += _ => resetTime();
+                KyzerGraphics.Graphics.ValueChanged += _ => resetTime();
+                eventSet = true;
+            }
+
             // as we are currently very dependent on having a running clock, let's make our own clock for the time being.
             Clock = new FramedClock();
 
@@ -100,7 +112,7 @@ namespace osu.Game.Rulesets.Osu.UI.Cursor
 
             const int fade_clock_reset_threshold = 1000000;
 
-            time = (float)(Time.Current - timeOffset) / 300f;
+            time = (float)(Time.Current - timeOffset) / (KyzerBooleans.CanOverrideTrail ? (float)KyzerGraphics.TrailFade : 300f);
             if (time > fade_clock_reset_threshold)
                 resetTime();
         }

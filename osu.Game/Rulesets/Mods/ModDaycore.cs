@@ -4,6 +4,8 @@
 using osu.Framework.Audio;
 using osu.Framework.Timing;
 using osu.Game.Graphics;
+using osu.Game.Kyzer.Main;
+using osu.Game.Overlays.Settings.Sections.Kyzer;
 
 namespace osu.Game.Rulesets.Mods
 {
@@ -18,7 +20,7 @@ namespace osu.Game.Rulesets.Mods
         {
             var pitchAdjust = clock as IHasPitchAdjust;
             if (pitchAdjust != null)
-                pitchAdjust.PitchAdjust = 0.75;
+                pitchAdjust.PitchAdjust = (KyzerBooleans.CanOverrideDaycore ? KyzerSpeedOverrides.SpeedHalfTime : 0.75);
             else
                 base.ApplyToClock(clock);
         }

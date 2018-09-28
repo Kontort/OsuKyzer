@@ -4,6 +4,8 @@
 using System;
 using osu.Framework.Timing;
 using osu.Game.Graphics;
+using osu.Game.Kyzer.Main;
+using osu.Game.Overlays.Settings.Sections.Kyzer;
 
 namespace osu.Game.Rulesets.Mods
 {
@@ -19,7 +21,7 @@ namespace osu.Game.Rulesets.Mods
 
         public virtual void ApplyToClock(IAdjustableClock clock)
         {
-            clock.Rate = 1.5;
+            clock.Rate = (KyzerBooleans.CanOverrideDoubletime ? KyzerSpeedOverrides.SpeedDoubleTime : 1.5);
         }
     }
 }

@@ -44,6 +44,8 @@ namespace osu.Game
     {
         protected OsuConfigManager LocalConfig;
 
+        protected KyzerConfigManager KyzerConfig;
+
         protected BeatmapManager BeatmapManager;
 
         protected SkinManager SkinManager;
@@ -89,7 +91,7 @@ namespace osu.Game
 
         public OsuGameBase()
         {
-            Name = @"osu!lazer";
+            Name = @"osu!kyzer";
         }
 
         private DependencyContainer dependencies;
@@ -114,6 +116,7 @@ namespace osu.Game
 
             dependencies.CacheAs(this);
             dependencies.Cache(LocalConfig);
+            dependencies.Cache(KyzerConfig);
 
             //this completely overrides the framework default. will need to change once we make a proper FontStore.
             dependencies.Cache(Fonts = new FontStore(new GlyphStore(Resources, @"Fonts/FontAwesome")));
@@ -236,6 +239,9 @@ namespace osu.Game
         {
             if (LocalConfig == null)
                 LocalConfig = new OsuConfigManager(host.Storage);
+
+            if (KyzerConfig == null)
+                KyzerConfig = new KyzerConfigManager(host.Storage);
             base.SetHost(host);
         }
 

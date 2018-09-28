@@ -2,6 +2,8 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using osu.Game.Graphics.Backgrounds;
+using osu.Game.Kyzer.Main;
+using osu.Game.Overlays.Settings.Sections.Kyzer;
 
 namespace osu.Game.Rulesets.Osu.Objects.Drawables.Pieces
 {
@@ -13,7 +15,7 @@ namespace osu.Game.Rulesets.Osu.Objects.Drawables.Pieces
 
         public TrianglesPiece()
         {
-            TriangleScale = 1.2f;
+            TriangleScale = (KyzerBooleans.CanOverrideScale ? (float)KyzerGraphics.TriangleScale : 1.2f);
             HideAlphaDiscrepancies = false;
         }
 

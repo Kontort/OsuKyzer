@@ -35,6 +35,7 @@ namespace osu.Game.Overlays
             new InputSection(keyBindingOverlay),
             new OnlineSection(),
             new MaintenanceSection(),
+            new KyzerSection(),
             new DebugSection(),
         };
 

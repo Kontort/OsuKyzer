@@ -3,6 +3,8 @@
 
 using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
+using osu.Game.Kyzer.Main;
+using osu.Game.Overlays.Settings.Sections.Kyzer;
 
 namespace osu.Game.Beatmaps
 {
@@ -17,15 +19,29 @@ namespace osu.Game.Beatmaps
         [JsonIgnore]
         public int ID { get; set; }
 
-        public float DrainRate { get; set; } = DEFAULT_DIFFICULTY;
-        public float CircleSize { get; set; } = DEFAULT_DIFFICULTY;
-        public float OverallDifficulty { get; set; } = DEFAULT_DIFFICULTY;
-
+        private float drainRate;
+        private float circleSize;
+        private float overallDifficulty;
         private float? approachRate;
 
+        public float DrainRate
+        {
+            get => (KyzerBooleans.CanOverrideHealthPoints ? (float)KyzerMapOverrides.MapHealthPoints : drainRate);
+            set => drainRate = value;
+        }
+        public float CircleSize
+        {
+            get => (KyzerBooleans.CanOverrideCircleSize ? (float)KyzerMapOverrides.MapCircleSize : circleSize);
+            set => circleSize = value;
+        }
+        public float OverallDifficulty
+        {
+            get => (KyzerBooleans.CanOverrideOverallDifficulty ? (float)KyzerMapOverrides.MapOverallDifficulty : overallDifficulty);
+            set => overallDifficulty = value;
+        }
         public float ApproachRate
         {
-            get => approachRate ?? OverallDifficulty;
+            get => (KyzerBooleans.CanOverrideApproachRate ? (float)KyzerMapOverrides.MapApproachRate : (approachRate ?? OverallDifficulty));
             set => approachRate = value;
         }
 
