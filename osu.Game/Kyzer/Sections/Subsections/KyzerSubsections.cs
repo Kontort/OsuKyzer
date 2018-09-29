@@ -66,7 +66,8 @@ namespace osu.Game.Overlays.Settings.Sections.Kyzer
         public static BindableBool Graphics = new BindableBool();
         public static BindableDouble TrailFade = new BindableDouble();
 
-        public static BindableDouble TriangleScale = new BindableDouble();
+        //public static BindableDouble TriangleScale = new BindableDouble();
+        public static BindableDouble TriangleSpeed = new BindableDouble();
         //public static BindableBool customBackground = new BindableBool();
 
         #endregion BindableValues
@@ -76,7 +77,8 @@ namespace osu.Game.Overlays.Settings.Sections.Kyzer
         private SettingsCheckbox enableSection;
         private SettingsSlider<double> fadeTrail;
 
-        private SettingsSlider<double> scaleTriangle;
+        //private SettingsSlider<double> scaleTriangle;
+        private SettingsSlider<double> speedTriangle;
         //private SettingsCheckbox backgroundsCustomize;
 
         #endregion DrawablesValues
@@ -89,7 +91,8 @@ namespace osu.Game.Overlays.Settings.Sections.Kyzer
 
             config.BindWith(KyzerSetting.Graphics, Graphics);
             config.BindWith(KyzerSetting.TrailFade, TrailFade);
-            config.BindWith(KyzerSetting.TriangleScale, TriangleScale);
+            //config.BindWith(KyzerSetting.TriangleScale, TriangleScale);
+            config.BindWith(KyzerSetting.TriangleSpeed, TriangleSpeed);
             //config.BindWith(KyzerSetting.CustomBackground, customBackground);
 
             #endregion BindWithConfiguration
@@ -108,11 +111,17 @@ namespace osu.Game.Overlays.Settings.Sections.Kyzer
                     Bindable = TrailFade,
                 },
 
-                scaleTriangle = new SettingsSlider<double>
+                //scaleTriangle = new SettingsSlider<double>
+                //{
+                //LabelText = "Triangle Scale",
+                //Bindable = TriangleScale,
+                //},
+
+                speedTriangle = new SettingsSlider<double>
                 {
-                    LabelText = "Triangle Scale",
-                    Bindable = TriangleScale,
-                },
+                    LabelText = "Triangle Speed",
+                    Bindable = TriangleSpeed,
+                }
 
                 //backgroundsCustomize = new SettingsCheckbox
                 //{
