@@ -11,7 +11,8 @@ namespace osu.Game.Configuration
         {
             Set(KyzerSetting.Graphics, false);
             Set(KyzerSetting.TrailFade, 300d, -1d, 1000d, 1d);
-            Set(KyzerSetting.TriangleScale, 1.2, 0.5, 2, 0.1);
+            //Set(KyzerSetting.TriangleScale, 1, 0.1, 5, 0.1);
+            Set(KyzerSetting.TriangleSpeed, 1, 0, 10, 0.1);
             //Set(KyzerSetting.CustomBackground, false);
 
             Set(KyzerSetting.SpeedOverride, false);
@@ -35,6 +36,7 @@ namespace osu.Game.Configuration
         Graphics,
         TrailFade,
         TriangleScale,
+        TriangleSpeed,
         //CustomBackground,
 
         SpeedOverride,

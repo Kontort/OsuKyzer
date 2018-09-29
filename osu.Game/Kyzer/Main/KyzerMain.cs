@@ -55,7 +55,9 @@ namespace osu.Game.Kyzer.Main
 
         public static bool CanOverrideTrail => canGraphicOverride && KyzerGraphics.TrailFade > -1;
 
-        public static bool CanOverrideScale => canGraphicOverride;
+        //public static bool CanOverrideScale => canGraphicOverride;
+
+        public static bool CanOverrideSpeed => canGraphicOverride;
         //public static bool canOverrideBackground => canGraphicOverride && KyzerGraphics.customBackground;
 
         #endregion GraphicBooleans

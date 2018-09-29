@@ -15,7 +15,7 @@ namespace osu.Game.Rulesets.Osu.Objects.Drawables.Pieces
 
         public TrianglesPiece()
         {
-            TriangleScale = (KyzerBooleans.CanOverrideScale ? (float)KyzerGraphics.TriangleScale : 1.2f);
+            TriangleScale = 1.2f;
             HideAlphaDiscrepancies = false;
         }
 

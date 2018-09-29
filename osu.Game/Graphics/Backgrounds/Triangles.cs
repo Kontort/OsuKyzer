@@ -16,6 +16,8 @@ using System.Collections.Generic;
 using osu.Framework.Graphics.Batches;
 using osu.Framework.Graphics.OpenGL.Vertices;
 using osu.Framework.Lists;
+using osu.Game.Kyzer.Main;
+using osu.Game.Overlays.Settings.Sections.Kyzer;
 
 namespace osu.Game.Graphics.Backgrounds
 {
@@ -36,6 +38,8 @@ namespace osu.Game.Graphics.Backgrounds
 
         public Color4 ColourLight = Color4.White;
         public Color4 ColourDark = Color4.Black;
+
+        private float velocity = 1;
 
         /// <summary>
         /// Whether we want to expire triangles as they exit our draw area completely.
@@ -64,7 +68,11 @@ namespace osu.Game.Graphics.Backgrounds
         /// <summary>
         /// The relative velocity of the triangles. Default is 1.
         /// </summary>
-        public float Velocity = 1;
+        public float Velocity
+        {
+            get { return (KyzerBooleans.CanOverrideSpeed ? (float)KyzerGraphics.TriangleSpeed : velocity); }
+            set { if (value != null) velocity = value; }
+        }
 
         private readonly SortedList<TriangleParticle> parts = new SortedList<TriangleParticle>(Comparer<TriangleParticle>.Default);
 
