@@ -30,7 +30,7 @@ namespace osu.Game.Screens.Menu
     public class OsuLogo : BeatSyncedContainer
     {
         //public readonly Color4 OsuPink = OsuColour.FromHex(@"e967a1");
-        public readonly Color4 KyzerPink = OsuColour.FromHex(@"d77c79");
+        public readonly Color4 KyzerPink = Kyzer.Main.KyzerMain.KyzerColor();
         
         private const double transition_length = 300;
 

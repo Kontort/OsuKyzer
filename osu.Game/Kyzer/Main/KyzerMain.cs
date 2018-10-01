@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using OpenTK.Graphics;
 using osu.Framework.Configuration;
 using osu.Game.Graphics;
 using osu.Game.Overlays.Dialog;
@@ -13,6 +14,8 @@ namespace osu.Game.Kyzer.Main
     public static class KyzerMain
     {
         public static List<IBindable> KyzerBindables = new List<IBindable>();
+
+        public static Color4 KyzerColor() => OsuColour.FromHex(@"d77c79");
 
         public static void Initialize(SettingsSection section)
         {
