@@ -35,6 +35,8 @@ namespace osu.Game.Graphics.Backgrounds
         public override bool HandleNonPositionalInput => false;
         public override bool HandlePositionalInput => false;
 
+        public bool MultipleColours = false;
+        public Color4[] Colours;
 
         public Color4 ColourLight = Color4.White;
         public Color4 ColourDark = Color4.Black;
@@ -162,7 +164,7 @@ namespace osu.Game.Graphics.Backgrounds
             TriangleParticle particle = CreateTriangle();
 
             particle.Position = new Vector2(RNG.NextSingle(), randomY ? RNG.NextSingle() : 1);
-            particle.Colour = CreateTriangleShade();
+            particle.Colour = MultipleColours ? Colours[RNG.Next(0, Colours.Length - 1)] : CreateTriangleShade();
 
             return particle;
         }

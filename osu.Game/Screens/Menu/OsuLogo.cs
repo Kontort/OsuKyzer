@@ -175,10 +175,25 @@ namespace osu.Game.Screens.Menu
                                                                         },
                                                                         triangles = new Triangles
                                                                         {
-                                                                            Alpha = 0.9f,
-                                                                            TriangleScale = 4,
-                                                                            ColourLight = OsuColour.FromHex(@"ffE68C"),
-                                                                            ColourDark = OsuColour.FromHex(@"620301"),
+                                                                            Alpha = 0.94f,
+                                                                            TriangleScale = 8,
+                                                                            MultipleColours = true,
+                                                                            Colours = new Color4[]
+                                                                            {
+                                                                                OsuColour.FromHex("fe7968"),
+                                                                                OsuColour.FromHex("a6512c"),
+                                                                                OsuColour.FromHex("a33617"),
+                                                                                OsuColour.FromHex("a62819"),
+                                                                                OsuColour.FromHex("740805"),
+                                                                                OsuColour.FromHex("b45131"),
+                                                                                OsuColour.FromHex("c17134"),
+                                                                                OsuColour.FromHex("a30F0b"),
+                                                                                OsuColour.FromHex("ffa46b"),
+                                                                                OsuColour.FromHex("ff7d8d"),
+                                                                                OsuColour.FromHex("b30f0d"),
+                                                                                OsuColour.FromHex("fee679"),
+                                                                                OsuColour.FromHex("cf5339"),
+                                                                            },
                                                                             RelativeSizeAxes = Axes.Both,
                                                                         },
                                                                     }
