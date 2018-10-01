@@ -29,8 +29,9 @@ namespace osu.Game.Screens.Menu
     /// </summary>
     public class OsuLogo : BeatSyncedContainer
     {
-        public readonly Color4 OsuPink = OsuColour.FromHex(@"e967a1");
-
+        //public readonly Color4 OsuPink = OsuColour.FromHex(@"e967a1");
+        public readonly Color4 KyzerPink = Kyzer.Main.KyzerMain.KyzerColor();
+        
         private const double transition_length = 300;
 
         private readonly Sprite logo;
@@ -170,13 +171,29 @@ namespace osu.Game.Screens.Menu
                                                                         new Box
                                                                         {
                                                                             RelativeSizeAxes = Axes.Both,
-                                                                            Colour = OsuPink,
+                                                                            Colour = KyzerPink,
                                                                         },
                                                                         triangles = new Triangles
                                                                         {
-                                                                            TriangleScale = 4,
-                                                                            ColourLight = OsuColour.FromHex(@"ff7db7"),
-                                                                            ColourDark = OsuColour.FromHex(@"de5b95"),
+                                                                            Alpha = 0.9f,
+                                                                            TriangleScale = 8,
+                                                                            MultipleColours = true,
+                                                                            Colours = new Color4[]
+                                                                            {
+                                                                                OsuColour.FromHex("fe7968"),
+                                                                                OsuColour.FromHex("a6512c"),
+                                                                                OsuColour.FromHex("a33617"),
+                                                                                OsuColour.FromHex("a62819"),
+                                                                                OsuColour.FromHex("740805"),
+                                                                                OsuColour.FromHex("b45131"),
+                                                                                OsuColour.FromHex("c17134"),
+                                                                                OsuColour.FromHex("a30F0b"),
+                                                                                OsuColour.FromHex("ffa46b"),
+                                                                                OsuColour.FromHex("ff7d8d"),
+                                                                                OsuColour.FromHex("b30f0d"),
+                                                                                OsuColour.FromHex("fee679"),
+                                                                                OsuColour.FromHex("cf5339"),
+                                                                            },
                                                                             RelativeSizeAxes = Axes.Both,
                                                                         },
                                                                     }
