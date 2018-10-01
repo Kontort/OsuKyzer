@@ -30,7 +30,7 @@ namespace osu.Game.Screens.Menu
     public class OsuLogo : BeatSyncedContainer
     {
         //public readonly Color4 OsuPink = OsuColour.FromHex(@"e967a1");
-        public readonly Color4 KyzerRed = OsuColour.FromHex(@"a8795b");
+        public readonly Color4 KyzerPink = OsuColour.FromHex(@"d77c79");
         
         private const double transition_length = 300;
 
@@ -171,11 +171,11 @@ namespace osu.Game.Screens.Menu
                                                                         new Box
                                                                         {
                                                                             RelativeSizeAxes = Axes.Both,
-                                                                            Colour = KyzerRed,
+                                                                            Colour = KyzerPink,
                                                                         },
                                                                         triangles = new Triangles
                                                                         {
-                                                                            Alpha = 0.94f,
+                                                                            Alpha = 0.9f,
                                                                             TriangleScale = 8,
                                                                             MultipleColours = true,
                                                                             Colours = new Color4[]
