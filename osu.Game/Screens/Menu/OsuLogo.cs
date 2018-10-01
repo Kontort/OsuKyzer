@@ -175,9 +175,10 @@ namespace osu.Game.Screens.Menu
                                                                         },
                                                                         triangles = new Triangles
                                                                         {
+                                                                            Alpha = 0.9f,
                                                                             TriangleScale = 4,
-                                                                            ColourLight = OsuColour.FromHex(@"ff7966"),
-                                                                            ColourDark = OsuColour.FromHex(@"a8100b"),
+                                                                            ColourLight = OsuColour.FromHex(@"ffE68C"),
+                                                                            ColourDark = OsuColour.FromHex(@"620301"),
                                                                             RelativeSizeAxes = Axes.Both,
                                                                         },
                                                                     }
