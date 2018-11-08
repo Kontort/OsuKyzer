@@ -13,24 +13,33 @@ using osu.Game.Rulesets.Edit;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Osu;
 using osu.Game.Rulesets.Osu.Edit;
+using osu.Game.Rulesets.Osu.Edit.Blueprints.HitCircles;
+using osu.Game.Rulesets.Osu.Edit.Blueprints.HitCircles.Components;
 using osu.Game.Rulesets.Osu.Objects;
-using osu.Game.Screens.Edit.Screens.Compose.Layers;
+using osu.Game.Screens.Edit.Compose;
+using osu.Game.Screens.Edit.Compose.Components;
 using osu.Game.Tests.Beatmaps;
 
 namespace osu.Game.Tests.Visual
 {
     [TestFixture]
-    public class TestCaseHitObjectComposer : OsuTestCase
+    [Cached(Type = typeof(IPlacementHandler))]
+    public class TestCaseHitObjectComposer : OsuTestCase, IPlacementHandler
     {
         public override IReadOnlyList<Type> RequiredTypes => new[]
         {
-            typeof(MaskSelection),
-            typeof(DragLayer),
+            typeof(SelectionBox),
+            typeof(DragBox),
             typeof(HitObjectComposer),
             typeof(OsuHitObjectComposer),
-            typeof(HitObjectMaskLayer),
-            typeof(NotNullAttribute)
+            typeof(BlueprintContainer),
+            typeof(NotNullAttribute),
+            typeof(HitCirclePiece),
+            typeof(HitCircleSelectionBlueprint),
+            typeof(HitCirclePlacementBlueprint),
         };
+
+        private HitObjectComposer composer;
 
         [BackgroundDependencyLoader]
         private void load()
@@ -59,7 +68,15 @@ namespace osu.Game.Tests.Visual
             Dependencies.CacheAs<IAdjustableClock>(clock);
             Dependencies.CacheAs<IFrameBasedClock>(clock);
 
-            Child = new OsuHitObjectComposer(new OsuRuleset());
+            Child = composer = new OsuHitObjectComposer(new OsuRuleset());
         }
+
+        public void BeginPlacement(HitObject hitObject)
+        {
+        }
+
+        public void EndPlacement(HitObject hitObject) => composer.Add(hitObject);
+
+        public void Delete(HitObject hitObject) => composer.Remove(hitObject);
     }
 }
