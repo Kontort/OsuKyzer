@@ -2,8 +2,6 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using osu.Game.Graphics.Backgrounds;
-using osu.Game.Kyzer.Main;
-using osu.Game.Overlays.Settings.Sections.Kyzer;
 
 namespace osu.Game.Rulesets.Osu.Objects.Drawables.Pieces
 {
